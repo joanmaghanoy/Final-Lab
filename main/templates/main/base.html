@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>BENS - Barangay Emergency Notification System</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'main/css/images/bens-logo.ico' %}" class="/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+
+</head>
+<body>
+        
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'main/css/images/bens-logo.ico' %}" alt="Logo" class="logo-img">
+             <span class="logo-text">BENS</span></span>
+        </div>
+        <div class="container">
+            <nav>
+                <a href="{% url 'home' %}">Home</a> 
+                <a href="{% url 'resident' %}">Resident</a> 
+                <a href="{% url 'emergency_reports' %}">Emergency Report</a> 
+                <a href="{% url 'contacts' %}">Contact Assignment</a> 
+                <a href="{% url 'responders' %}">Emergency Responder</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong> Bacoor Emergency Notification System.</strong> All rights reserved.</p>
+    </footer>
+</body>
+</html>

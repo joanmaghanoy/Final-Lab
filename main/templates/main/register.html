@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <h1>Create Account</h1>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+
+        {% if form.errors %}
+            <div class="error-box">
+                <p>Please correct the errors below.</p>
+            </div>
+        {% endif %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">
+            Register
+        </button>
+    </form>
+
+    <p class="auth-link">
+        Already have an account?
+        <a href="{% url 'login' %}">Login here</a>
+    </p>
+</div>
+{% endblock %}

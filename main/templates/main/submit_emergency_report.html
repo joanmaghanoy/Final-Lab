@@ -1,0 +1,8 @@
+resident_obj = Resident.objects.get(user=request.user)
+
+Notification.objects.create(
+    resident=resident_obj,  # ✅ this is a Resident
+    message=f"Your emergency report ({report_type}) has been submitted.",
+    report=report,
+    sent_via="System"
+)

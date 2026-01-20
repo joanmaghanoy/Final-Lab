@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+</head>
+<body>
+    <div class="container">
+
+        <h1>Welcome to the Barangay Emergency Notification System</h1>
+
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }}!</p>
+            <a href="{% url 'resident' %}" class="dashboard">Go to Dashboard</a>
+            <a href="{% url 'login' %}" class="logout">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="login">Login</a>
+            <a href="{% url 'register' %}" class="register">Register</a>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}

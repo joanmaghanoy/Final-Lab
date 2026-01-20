@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+{% block content %}
+<h1>Notification</h1>
+<ul>
+    {% for notification in notifications %}
+        <li>{{ notification.report.type }}: {{ notification.message }} ({{ notification.sent_via }})</li>
+    {% empty %}
+        <li>No notifications available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

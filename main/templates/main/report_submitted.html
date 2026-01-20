@@ -1,0 +1,9 @@
+{% extends "main/base.html" %}
+{% block content %}
+<h1>Report Submitted</h1>
+
+<p>Your emergency report <strong>{{ report.type }}</strong> has been submitted successfully.</p>
+<p>Status: {{ report.status }}</p>
+
+<a href="{% url 'resident' %}">Back to Dashboard</a>
+{% endblock %}

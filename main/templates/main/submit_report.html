@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Emergency Report</title>
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Submit Emergency Report</h1>
+
+    <!-- Messages -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+        <a href="{% url 'resident' %}" class="dashboard">Back to Dashboard</a>
+        <a href="{% url 'resident' %}" class="cancel-btn">Cancel</a>
+    </form>
+</div>
+</body>
+</html>

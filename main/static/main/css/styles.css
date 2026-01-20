@@ -1,0 +1,248 @@
+:root {
+    --green-main: #10b981;
+    --green-dark: #047857;
+    --green-light: #d1fae5;
+
+    --red-main: #ef4444;
+    --red-dark: #b91c1c;
+    --red-light: #fee2e2;
+
+    --text-dark: #1f2937;
+    --bg-light: #f0fdf4;
+    --white: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e6f4ea, var(--bg-light));
+    color: var(--text-dark);
+    min-height: 100vh;
+    animation: fadeIn 1s ease;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 35px 40px;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.8s ease;
+}
+
+h1, h2 {
+    text-align: center;
+    color: var(--green-dark);
+    margin-bottom: 25px;
+    animation: slideDown 0.8s ease;
+}
+
+.messages {
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    animation: fadeInUp 0.5s ease;
+}
+
+.message.success {
+    background: var(--green-light);
+    color: var(--green-dark);
+    border-left: 5px solid var(--green-main);
+}
+
+.message.error {
+    background: var(--red-light);
+    color: var(--red-dark);
+    border-left: 5px solid var(--red-main);
+}
+
+form label {
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--green-main);
+    box-shadow: 0 0 0 3px rgba(16,185,129,0.25);
+    transform: scale(1.02);
+}
+
+button,
+a.dashboard,
+a.cancel-btn,
+a.login,
+a.register,
+a.logout {
+    display: inline-block;
+    padding: 12px 26px;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: buttonFade 0.9s ease;
+}
+
+/* GREEN BUTTONS */
+button,
+a.dashboard,
+a.login {
+    background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+}
+
+/* RED BUTTONS */
+a.cancel-btn,
+a.logout,
+a.register {
+    background: linear-gradient(135deg, var(--red-main), var(--red-dark));
+}
+
+button:hover,
+a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+ul {
+    list-style: none;
+    list-style-type: disc;
+}
+
+ul li {
+    background: var(--green-light);
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    animation: fadeInUp 0.6s ease;
+}
+
+ul li.unread {
+    background: var(--red-light);
+    border-left: 5px solid var(--red-main);
+}
+
+header {
+    background: linear-gradient(90deg, var(--green-dark), var(--green-main));
+    padding: 15px 25px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 40px;
+    animation: pulse 2.5s infinite;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    height: 3px;
+    width: 0;
+    background: var(--red-main);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+footer {
+    background: var(--green-dark);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes buttonFade {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 25px 15px;
+        padding: 25px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    a, button {
+        width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

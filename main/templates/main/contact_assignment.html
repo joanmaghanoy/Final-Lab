@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% block content %}
+<h1>Contact Assignment</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Responder</th>
+            <th>Contact Number</th>
+            <th>Barangay Area</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.responder.name }}</td>
+                <td>{{ contact.contact_number }}</td>
+                <td>{{ contact.barangay_area }}</td>
+            </tr>
+        {% empty %}
+            <tr><td colspan="3">No contacts available.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

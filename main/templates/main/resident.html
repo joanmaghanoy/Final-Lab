@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resident Dashboard</title>
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Welcome, {{ resident.user.username }}</h1>
+
+    <!-- Notifications Section -->
+    <h2>Notifications</h2>
+    <ul class="notification-list">
+        {% for n in notifications %}
+            <li class="notification {% if not n.read %}unread{% endif %}">
+                {{ n.message }} - 
+                {% if n.read %}<span class="read">Read</span>{% else %}<span class="unread-text">Unread</span>{% endif %}
+            </li>
+        {% empty %}
+            <li>No notifications.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Emergency Reports Section -->
+    <h2>Emergency Reports</h2>
+    <ul class="report-list">
+        {% for report in emergency_reports %}
+            <li class="report-item">
+                <strong>{{ report.type }}</strong> - {{ report.status }} - 
+                <span>{{ report.created_at|date:"M d, Y H:i" }}</span>
+            </li>
+        {% empty %}
+            <li>No emergency reports.</li>
+        {% endfor %}
+    </ul>
+
+    <div class="buttons">
+        <a href="{% url 'home' %}" class="btn">Go to Home</a>
+        <a href="{% url 'home' %}" class="btn logout-btn">Logout</a>
+    </div>
+</div>
+</body>
+</html>

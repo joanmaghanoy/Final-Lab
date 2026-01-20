@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+{% block content %}
+<h1>Emergency Responder</h1>
+<ul>
+    {% for responder in responders %}
+        <li>{{ responder.name }} ({{ responder.type }})</li>
+    {% empty %}
+        <li>No responders found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
